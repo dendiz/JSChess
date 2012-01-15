@@ -1,0 +1,85 @@
+<html>
+<head>
+	<script src="data.js"></script>
+	<script src="sprintf.js"></script>
+	<script src="eval.js"></script>
+	<script src="jquery.js"></script>
+	<script src="engine.js"></script>
+	<script src="xboard.js"></script>
+	<script src="chess.js"></script>
+	<style>
+		.clearer {
+			clear:both;
+		}
+		.y-coord {
+			float: left;
+			width: 15px;
+			line-height: 52px;
+		}
+		.coord {
+			float: left;
+			width: 52px;
+			height: 50px;
+			text-align: center;
+		}
+		.coord.first {
+			margin-left: 15px;
+		}
+		.sq {
+			width: 50px;
+			height: 50px;
+			border: 1px solid black;
+			float: left;
+		}
+		.sq.light {
+			background-color: white;
+		}
+		.sq.dark {
+			background-color: green;
+		}
+		.sq.selected {
+			background-color:rgba(255,0,0,0.5);
+		}
+		input[type=text] {
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+<div id="board" style="width: 500px; float: left; display: inline"></div>
+<div style="float:left; display: inline; width: 400px;">
+	<fieldset>
+		<legend>Conversions</legend>
+		<div><input type="text" id="index-to-coordinate"><button id="index-to-coordinate-btn">index to coordinate</button></div>
+		<div><input type="text" id="coordinate-to-index"><button id="coordinate-to-index-btn">coordinate to index</button></div>
+		<div id="conversion-result" style="height: 50px; color: red;"></div>
+	</fieldset>
+	<fieldset>
+		<legend>gen_dat</legend>
+		<div>
+			from:
+			<input type="text" id="gen_dat-from">
+			to:
+			<input type="text" id="gen_dat-to">
+			<button id="gen_dat-search-btn">search</button>
+		</div>
+		<div id="gen_dat-result" style="height: auto; color: red;"></div>
+	</fieldset>
+	<fieldset>
+		<legend>dumps</legend>
+		<button id="board-dump-btn">Board dump</button>
+
+		<div id="board-dump-result">
+			<br />Color+Piece <br />
+			<textarea id="color-dump" style="width: 390px;height: 150px;"></textarea>
+		</div>
+		
+	</fieldset>
+</div>
+<div id="checkmate" style="color:red; font-size: 2em;"></div>
+<div id="engine-thinking" style="color: red; font-size: 2em;">Engine thinking..</div>
+<div id="invalid-move" style="color:red; font-size: 2em;">Invalid move</div>
+<div id="invalid-turn" style="color:red; font-size: 2em;">Not your turn</div>
+
+</body>
+</html>
